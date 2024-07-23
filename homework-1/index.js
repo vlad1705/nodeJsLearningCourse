@@ -5,12 +5,22 @@ const books = [
     { title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925, genres: ["Fiction", "Classic"] },
     { title: "The Catcher in the Rye", author: "J.D. Salinger", year: 1951, genres: ["Fiction", "Classic"] },
     { title: "Brave New World", author: "Aldous Huxley", year: 1932, genres: ["Dystopian", "Science Fiction"] },
-    { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937, genres: ["Fantasy"] },
+    { title: "The Hobbit ", author: "J.R.R. Tolkien", year: 1937, genres: ["Fantasy"] },
     { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937, genres: ["Fantasy"] }
 ];
 
+function trimAllValues(book){
+    return {
+        title: book.title.trim(),
+        author: book.author.trim(),
+        year: book.year,
+        genres: book.genres.map(g=>g.trim()),
+    }
+}
+
+
 const uniqueBooks = Array.from(
-    new Set(books.map(book => JSON.stringify({ ...book, rating: 5 }))))
+    new Set(books.map(book => JSON.stringify({ ...trimAllValues(book), rating: 5 }))))
     .map(bookStr => JSON.parse(bookStr))
 
 // 1
