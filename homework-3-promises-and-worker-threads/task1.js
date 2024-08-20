@@ -1,7 +1,6 @@
 async function makeFewApiCalls(...links) {
-    let responses  = await Promise.all(links.map((link)=> fetch(link)))
-    // console.log(responses)
-    let jsonedResult = await Promise.all(responses.map(response => response.json()));
+    const responses  = await Promise.all(links.map((link)=> fetch(link)))
+    const jsonedResult = await Promise.all(responses.map(response => response.json()));
     return jsonedResult;
 }
 

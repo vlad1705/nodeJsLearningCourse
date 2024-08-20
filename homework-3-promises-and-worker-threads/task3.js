@@ -1,8 +1,7 @@
 const fs = require('fs');
 
 async function returnAllCompletedPromises(...promises) {
-    const results = await Promise.allSettled(promises);
-    return results;
+    return await Promise.allSettled(promises);
 }
 
 function writeToFile(filename, data) {
